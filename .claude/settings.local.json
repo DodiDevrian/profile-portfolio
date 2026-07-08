@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php -v)",
+      "Bash(composer --version)",
+      "Bash(mysql --version)",
+      "Bash(git --version)",
+      "Bash(git clone *)",
+      "Bash(mv _ci_tmp/system ./system)",
+      "Bash(cp _ci_tmp/index.php ./index.php)",
+      "Bash(sed -i 's|$config\\\\['\\\\''base_url'\\\\''\\\\] = '\\\\'''\\\\'';|$config['\\\\''base_url'\\\\''] = '\\\\''http://localhost:8080/'\\\\'';|' config.php)",
+      "Bash(sed -i 's|$config\\\\['\\\\''index_page'\\\\''\\\\] = '\\\\''index.php'\\\\'';|$config['\\\\''index_page'\\\\''] = '\\\\'''\\\\'';|' config.php)",
+      "Bash(sed -i 's|$config\\\\['\\\\''encryption_key'\\\\''\\\\] = '\\\\'''\\\\'';|$config['\\\\''encryption_key'\\\\''] = '\\\\''Pf0lioCms2026SecretKeyX9routerKiro'\\\\'';|' config.php)",
+      "Bash(sed -i 's|$config\\\\['\\\\''sess_save_path'\\\\''\\\\] = NULL;|$config['\\\\''sess_save_path'\\\\''] = APPPATH . '\\\\''cache/sessions'\\\\'';|' config.php)",
+      "Bash(sed -i 's|$config\\\\['\\\\''csrf_protection'\\\\''\\\\] = FALSE;|$config['\\\\''csrf_protection'\\\\''] = TRUE;|' config.php)",
+      "Bash(sed -i \"s|'username' => '',|'username' => 'root',|\" database.php)",
+      "Bash(sed -i \"s|'database' => '',|'database' => 'portfolio_cms',|\" database.php)",
+      "Bash(sed -i 's|$autoload\\\\['\\\\''libraries'\\\\''\\\\] = array\\(\\);|$autoload['\\\\''libraries'\\\\''] = array\\('\\\\''database'\\\\'', '\\\\''session'\\\\'', '\\\\''form_validation'\\\\''\\);|' autoload.php)",
+      "Bash(sed -i 's|$autoload\\\\['\\\\''helper'\\\\''\\\\] = array\\(\\);|$autoload['\\\\''helper'\\\\''] = array\\('\\\\''url'\\\\'', '\\\\''form'\\\\'', '\\\\''general'\\\\''\\);|' autoload.php)",
+      "Bash(php *)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root -e 'SELECT VERSION\\(\\);')",
+      "Read(//c/xampp/mysql/bin/**)",
+      "Bash(./mysqld.exe --defaults-file=/c/xampp/mysql/bin/my.ini)",
+      "Bash(echo \"started pid $!\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root -e \"SELECT VERSION\\(\\);\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root -e \"USE portfolio_cms; SELECT \\(SELECT COUNT\\(*\\) FROM skills\\) AS skills, \\(SELECT COUNT\\(*\\) FROM portfolios\\) AS projects, \\(SELECT COUNT\\(*\\) FROM users\\) AS users, \\(SELECT email FROM users LIMIT 1\\) AS admin_email;\")",
+      "Bash(echo \"server pid $!\")",
+      "Bash(curl -s -o /tmp/home.html -w \"HTTP %{http_code}, %{size_download} bytes\\\\n\" http://localhost:8080/index.php)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /tmp/d.html -w \"HTTP %{http_code}\\\\n\" \"http://localhost:8080/index.php/portfolio/ecommerce-platform\")",
+      "Bash(curl -s -o /tmp/l.html -w \"HTTP %{http_code}\\\\n\" \"http://localhost:8080/index.php/login\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}, redirect: %{redirect_url}\\\\n\" \"http://localhost:8080/index.php/admin\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" \"http://localhost:8080/index.php/portfolio/does-not-exist\")",
+      "Bash(/c/xampp/mysql/bin/mysql.exe *)"
+    ]
+  }
+}
