@@ -16,7 +16,7 @@ $skill_icons = array(
     <div class="grid">
       <div data-aos="fade-right">
         <p class="section-eyebrow"><?= e($hero['subtitle'] ?? 'Welcome') ?></p>
-        <h1>Halo<?= e($hero['title'] ?? ($profile['name'] ?? 'Hello')) ?></h1>
+        <h1><?= e($hero['title'] ?? ($profile['name'] ?? 'Hello')) ?></h1>
         <?php if ( ! empty($hero['typed_text'])): ?>
           <h2 style="font-size:1.4rem;margin:.2rem 0"><span class="typed" data-typed="<?= e($hero['typed_text']) ?>"></span></h2>
         <?php endif; ?>
