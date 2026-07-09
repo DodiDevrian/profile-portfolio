@@ -1,15 +1,1 @@
-# CodeIgniter runtime
-application/cache/*
-!application/cache/index.html
-application/cache/sessions/*
-application/logs/*
-!application/logs/index.html
 
-# Uploaded content
-assets/uploads/**/*
-!assets/uploads/**/index.html
-
-# OS / editor
-.DS_Store
-Thumbs.db
-*.log
